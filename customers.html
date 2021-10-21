@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View All Customers|Online Transaction Portal</title>
+    <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="CSS_files/css/customer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- navbar starts here  -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand" href="./index.html"><b>Entrust Bank - Online Portal</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home Page </a>
+                </li>
+                <li class="nav-item  active">
+                    <a class="nav-link" href="./customers.html" data-toggle="modal" data-target="#sendMoney"
+                        style="color: background-color: rgb(180, 178, 178);">Send Money</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.thesparksfoundationsingapore.org/" target="_blank">About
+                        Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar ends here  -->
+
+    <div class="my-info text-center">
+        
+        <h2 style="color: rgb(179, 179, 179);"> Name: Aanchal Patel (Acc. no. 1800455627)</h2>
+        <h4 style="color: rgb(179, 179, 179);">Net Bank Balance: ₹<span id="myAccountBalance">100000</span></h4>
+
+        <button class="btn btn-info" data-toggle="modal" data-target="#sendMoney">Send Money</button>
+        <a class="btn btn-info" href="" data-toggle="modal" data-target="#transactionHistory">View All Transactions</a>
+    </div>
+
+    <!-- Modal send money -->
+    <div class="modal fade" id="sendMoney" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Send Money</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="input-group mb-3">
+                            <input type="text" id="enterName" class="form-control" placeholder="Recipient's username"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">@email.com</span>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">₹</span>
+                            </div>
+                            <input type="text" id="enterAmount" class="form-control" placeholder=" Enter Amount"
+                                aria-label="Amount (to the nearest dollar)">
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00/-</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="sendMoney()" class="btn btn-success" data-dismiss="modal">Send Money</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal transaction History-->
+    <div class="modal fade" id="transactionHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Transaction History</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ol id="transaction-history-body">
+
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- table  -->
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead id="table_topic">
+                    <tr class="table-danger">
+                        <th scope="col">Account Number</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">E-Mail</th>
+                        <th scope="col">Bank Balance(in ₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-light">
+                        <td scope="row">1800457603</td>
+                        <td>Liam Jones</td>
+                        <td>liam@email.com</td>
+                        <td>
+                            <p id="liamBankBalance">52900</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">1800483103</td>
+                        <td>Noah</td>
+                        <td>noah12@email.com</td>
+                        <td>
+                            <p id="noah12BankBalance">24000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">1800491361</td>
+                        <td>Olivia Smith</td>
+                        <td>oli@email.com</td>
+                        <td>
+                            <p id="oliBankBalance">89500</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">1800472744</td>
+                        <td>William Brown</td>
+                        <td>williamb@email.com</td>
+                        <td>
+                            <p id="williambBankBalance">12000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">1800437131</td>
+                        <td>Lucas Martin</td>
+                        <td>lucas7@email.com</td>
+                        <td>
+                            <p id="lucas7BankBalance">67200</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">1800438894</td>
+                        <td>James Miller</td>
+                        <td>jmiller@email.com</td>
+                        <td>
+                            <p id="jmillerBankBalance">29500</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">1800428807</td>
+                        <td>Harper  Hill</td>
+                        <td>hh9@email.com</td>
+                        <td>
+                            <p id="hh9BankBalance">59000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">1800498135</td>
+                        <td>Mia Hall</td>
+                        <td>miahall@email.com</td>
+                        <td>
+                            <p id="miahallBankBalance">10000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">1800407257</td>
+                        <td>Amelia</td>
+                        <td>ama@email.com</td>
+                        <td>
+                            <p id="amaBankBalance">35000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">1800412960</td>
+                        <td>Sophia White</td>
+                        <td>sophia@email.com</td>
+                        <td>
+                            <p id="sophiaBalance">70000</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h style="color: rgb(191, 191, 191);"> <center>© 2021 <b>Aanchal Patel</b></center> </h>
+    <h style="color: rgb(191, 191, 191);"> <center>Chief Executive Officer - Entrust Bank</center> </h>
+  
+  
+    <!-- footer starts here -->
+    <footer>
+      <hr>
+      <div class="row text-center">
+        <div class="col-md-6">
+          <p><li><a target="_blank" class="The Sparks Foundation" href="https://www.linkedin.com/company/the-sparks-foundation/mycompany/"> The Sparks Foundation</a> </p>
+        </div>
+        <div class="col-md-6 text-center">
+          <ul class="social-icons">
+            <li><a target="_blank" class="LinkedIn" href="https://www.linkedin.com/in/aanchal-patel-b985531b9/"><i
+                  class="fab fa-linkedin fa-2x"></i></a>
+                <a target="_blank" class="Instagram" href="https://www.instagram.com/nonsaneee_/"><i 
+                  class="fab fa-instagram fa-2x"></i></a>
+                <a target="_blank" class="GitHub" href="https://github.com/AanchalP1"><i 
+                    class="fab fa-github fa-2x"></i></a>
+              </li>
+  
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- footer ends here -->
+
+    <script src="CSS_files/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+
+</body>
+
+</html>

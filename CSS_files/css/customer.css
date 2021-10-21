@@ -1,0 +1,85 @@
+body{
+    font-family:'Roboto', sans-serif;
+    background-color: #000000
+}
+
+#navbarSupportedContent a:hover
+{
+    background-color: #e0e8e9;
+}
+/* navbar css starts here  */
+.bg-light{
+    background-color: #4d4d4d!important;
+}
+
+.navbar-brand{
+    font-family: 'Bebas Neus', cursive;
+    font-size: 1.5rem;
+    color: #b5b5b5!important;
+}
+
+.nav-link{
+    color: #b5b5b5!important;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.nav-link:hover{
+background-color: #434343;
+opacity: 50%;
+}
+/* navbar css ends here  */
+
+.my-info{
+    padding: 2rem 5rem;
+}
+#table_topic
+{
+    background-color: #8d8d8d;
+}
+.table-danger, .table-danger>td, .table-danger>th {
+    background-color: rgb(92, 92, 92);
+}
+.table-hover .table-danger:hover>th {
+    background-color: rgb(95, 95, 95);
+}
+.btn-info{
+    padding: 1rem 1.2rem;
+    background-color:#57837f!important;
+    color: rgb(247, 243, 243)!important;
+    margin-left: 5px;
+    padding: 0.75rem;
+    transition: all 0.3s;
+}
+
+.btn-info:hover{
+    background-color: #2e4947!important;
+}
+
+.table-light, .table-light>td, .table-light>th {
+    background-color: rgb(209, 209, 209);
+}
+.table-hover .table-light:hover>td{
+    background-color: #7a7573;
+}
+
+/* footer css starts here */
+footer{
+    background-color:#0c0c0c;
+}
+
+.social-icons li{
+    list-style: none;
+    display: inline;
+    padding: 0.5rem;
+}
+
+
+
+.linkedin{
+    color: #0077b5;
+}
+
+.google{
+    color: #D44638;
+}
+/* footer css ends here  */
