@@ -7,7 +7,7 @@ This repository contains the tasks that I completed while working as an intern f
 
 Web Development and Design Internship
 ( October 2021 )
+<a href="https://aanchalp1.github.io/Entrust-Banking-System/">Link</a>
 
 
-
-# Task-1 : Basic Banking System     <a href="https://aanchalp1.github.io/Entrust-Banking-System/">Link</a>                                 
+# Task-1 : Basic Banking System                                      
